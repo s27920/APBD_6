@@ -71,7 +71,7 @@ public class WarehouseRepository : IWarehouseRepository
         command.Parameters.AddWithValue("IdProduct", idProduct);
         command.Parameters.AddWithValue("IdWarehouse",idWarehouse);
         command.Parameters.AddWithValue("Amount", amount);
-        command.Parameters.AddWithValue("CreatedAt", "GETDATE()");
+        command.Parameters.AddWithValue("CreatedAt", DateTime.Now);
         await command.ExecuteNonQueryAsync();
     }
 
