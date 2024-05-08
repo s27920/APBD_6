@@ -15,7 +15,7 @@ public interface IWarehouseRepository
     public Task<bool> CheckOrderCorrectnessAsync(int? productId, int? amount);
     public Task<bool> CheckFulfilled(int idOrder);
     public Task<double> GetOrderCostAsync(int idProduct, int idOrder);
-    public Task<int> GetPriceAsync(int idProduct);
+    public Task<double> GetPriceAsync(int idProduct);
     public Task<int> GetAmountAsync(int idOrder);
 }
 
@@ -120,13 +120,13 @@ public class WarehouseRepository : IWarehouseRepository
     //fetching private utility methods
     public async Task<double> GetOrderCostAsync(int idProduct, int idOrder)
     {
-        int price = await GetPriceAsync(idProduct);
+        double price = await GetPriceAsync(idProduct);
         int ammount = await GetAmountAsync(idOrder);
 
         return price * ammount;
     }
 
-    public async Task<int> GetPriceAsync(int idProduct)
+    public async Task<double> GetPriceAsync(int idProduct)
     {
         await using var connection = new SqlConnection(_iConfiguration["ConnectionStrings:DefaultConnection"]);
         await connection.OpenAsync();
@@ -137,7 +137,7 @@ public class WarehouseRepository : IWarehouseRepository
         if (reader.HasRows)
         {
             await reader.ReadAsync();
-            return reader.GetInt32(reader.GetOrdinal("Price"));
+            return reader.GetDouble(reader.GetOrdinal("Price"));
         }
         else
         {

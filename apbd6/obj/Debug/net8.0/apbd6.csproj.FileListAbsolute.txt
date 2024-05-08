@@ -66,3 +66,4 @@ C:\Users\janek\RiderProjects\apbd6\apbd6\obj\Debug\net8.0\refint\apbd6.dll
 C:\Users\janek\RiderProjects\apbd6\apbd6\obj\Debug\net8.0\apbd6.pdb
 C:\Users\janek\RiderProjects\apbd6\apbd6\obj\Debug\net8.0\apbd6.genruntimeconfig.cache
 C:\Users\janek\RiderProjects\apbd6\apbd6\obj\Debug\net8.0\ref\apbd6.dll
+C:\Users\janek\RiderProjects\apbd6\apbd6\obj\Debug\net8.0\apbd6.sourcelink.json
